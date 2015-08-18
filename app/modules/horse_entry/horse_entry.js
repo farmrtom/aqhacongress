@@ -2,7 +2,7 @@
 
 congressApp.controller('HorseEntryController', function HorseEntryController($scope, $window, $location, horseEntryService) {
 	$scope.init = function() {
-		$scope.classes = "3500 0500";
+		
 	}
 	
 	$scope.submit = function() {
