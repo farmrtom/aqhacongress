@@ -1,12 +1,9 @@
-<span class="title">AQHA Congress Entry Fees</span>
-<p class="instructions">
-	Enter class numbers separate by spaces
-</p>
+<span class="title">AQHA Congress Entry Fees Estimator *</span>
 <div class="input-group">
-	<input id="classes" ng-model="classes" type="text" class="form-control custom-control" style="resize:none"></input>
+	<input id="classes" ng-model="classes" type="text" class="form-control" placeholder="Enter class numbers separated by a space"></input>
 	<a ng-click="submit()" class="input-group-addon btn btn-primary">Submit</a>
 </div>
-<div class="container" ng-if="horse_entry_result">
+<div class="horse_entry_result" ng-if="horse_entry_result">
 	<table>
 		<tr>
 			<th colspan="2">
@@ -14,12 +11,12 @@
 			</th>
 		</tr>
 		<tbody ng-repeat="class in horse_entry_result.classes track by class.class_number">
-			<tr>
+			<tr class="summary">
 				<td colspan="2">
 					{{class.class_number}}
 				</td>
 			</tr>
-			<tr>
+			<tr class="summary">
 				<td colspan="2">
 					{{class.description}}
 				</td>
@@ -33,7 +30,7 @@
 				<td>
 					{{fee.description}}
 				</td>
-				<td>
+				<td class="fee_cell">
 					{{fee.fee | currency:"$":0}}
 				</td>
 			</tr>
@@ -41,7 +38,7 @@
 				<td>
 					Total Class Fee
 				</td>
-				<td>
+				<td class="fee_cell">
 					{{class.class_fee | currency:"$":0}}
 				</td>
 			</tr>
@@ -56,7 +53,7 @@
 				<td>
 					{{fee.description}}
 				</td>
-				<td>
+				<td class="fee_cell">
 					{{fee.fee | currency:"$":0}}
 				</td>
 			</tr>
@@ -64,10 +61,29 @@
 				<td>
 					Grand Total
 				</td>
-				<td>
+				<td class="fee_cell">
 					{{horse_entry_result.total_fee | currency:"$":0}}
 				</td>
 			</tr>
 		</tbody>
 	</table>
+</div>
+<div class="footnote">
+	<p>
+		* DISCLAIMER
+	</p>
+	<p>
+		This is for informational purposes only and is not guaranteed to be accurate.
+	</p>
+	<p>
+		1 Box Stall Fee, Drug Test Fee and Office Fee are included in this estimate.
+	</p>
+	</p>
+	<p>
+		NSBA classes do not include Fence, Trail or Cattle fees in the estimate; it is
+		assumed you entered the regular AQHA class, where the fee will be assessed.
+	</p>
+	<p>
+		Reining and Halter classes are not included at this time.
+	</p>
 </div>

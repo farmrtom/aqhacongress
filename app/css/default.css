@@ -1,5 +1,13 @@
-legend {
-	font-weight: bold;
+body {
+	padding: 1em;
+}
+
+.horse_entry_result {
+	padding: 2em;
+}
+
+td.fee_cell {
+	text-align: right;
 }
 
 .title {
@@ -16,7 +24,7 @@ tbody {
 }
 
 tbody.summary {
-	background-color:grey;
+	background-color: #e2e2e2;
 }
 
 tr.summary {
