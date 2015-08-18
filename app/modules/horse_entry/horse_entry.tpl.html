@@ -1,0 +1,73 @@
+<span class="title">AQHA Congress Entry Fees</span>
+<p class="instructions">
+	Enter class numbers separate by spaces
+</p>
+<div class="input-group">
+	<input id="classes" ng-model="classes" type="text" class="form-control custom-control" style="resize:none"></input>
+	<a ng-click="submit()" class="input-group-addon btn btn-primary">Submit</a>
+</div>
+<div class="container" ng-if="horse_entry_result">
+	<table>
+		<tr>
+			<th colspan="2">
+				Class
+			</th>
+		</tr>
+		<tbody ng-repeat="class in horse_entry_result.classes track by class.class_number">
+			<tr>
+				<td colspan="2">
+					{{class.class_number}}
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					{{class.description}}
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					Class Fees
+				</td>
+			</tr>
+			<tr ng-repeat="fee in class.fees">
+				<td>
+					{{fee.description}}
+				</td>
+				<td>
+					{{fee.fee | currency:"$":0}}
+				</td>
+			</tr>
+			<tr class="summary">
+				<td>
+					Total Class Fee
+				</td>
+				<td>
+					{{class.class_fee | currency:"$":0}}
+				</td>
+			</tr>
+		</tbody>
+		<tbody class="summary">
+			<tr class="summary">
+				<td colspan="2">
+					Fee Summary
+				</td>
+			</tr>
+			<tr ng-repeat="fee in horse_entry_result.fees">
+				<td>
+					{{fee.description}}
+				</td>
+				<td>
+					{{fee.fee | currency:"$":0}}
+				</td>
+			</tr>
+			<tr class="summary">
+				<td>
+					Grand Total
+				</td>
+				<td>
+					{{horse_entry_result.total_fee | currency:"$":0}}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

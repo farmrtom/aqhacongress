@@ -1,29 +1,28 @@
 var env = process.env.NODE_ENV || 'dev', config = require('./config/config.' + env);
 
 var express = require('express'),
-    bodyParser = require('body-parser'),
-    cors = require('cors'),
-    cookieParser = require('cookie-parser'),
-    session = require('express-session'),
+    body_parser = require('body-parser'),
+    cors = require('cors');
+
+var horse_entry_route = require('./routes/horse_entry');
 
 var bunyan = require('bunyan');
 var log = bunyan.createLogger({name: "main"});
 
-log.debug(config);
+//log.debug(config);
 
 var app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(body_parser.json());
 
 app.use(express.static(__dirname + '/app')); 
+
+
+app.post('/api/horse_entry', horse_entry_route.calculate);
 
 
 app.set('port', process.env.PORT || 8080);
 var server = app.listen(app.get('port'), function() {
 	console.log('congress server listening on port ' + server.address().port);
 });
-
-
-
-
 module.exports = app;

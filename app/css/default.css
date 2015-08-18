@@ -1,0 +1,24 @@
+legend {
+	font-weight: bold;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 120%;
+}
+
+.instructions {
+	font-style: italic;
+}
+
+tbody {
+	border: 1px solid #000000;
+}
+
+tbody.summary {
+	background-color:grey;
+}
+
+tr.summary {
+	font-weight: bold;
+}
