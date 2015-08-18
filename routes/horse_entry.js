@@ -8,11 +8,15 @@ exports.calculate = function (req, res) {
 	var body = JSON.stringify(req.body);
 	var body_json = JSON.parse(body);
 	
+	log.info(body_json);
+	
 	horse_entry_logic.calculate(body_json, function(err, result) {
 		if(err) {			
 			res.writeHead(500);
 			res.end();
-		} else {			
+		} else {
+			log.info(result);
+			
 			res.writeHead(200);
 			res.write(JSON.stringify(result));
 			res.end();
