@@ -7,7 +7,6 @@ congressApp.controller('HorseEntryController', function HorseEntryController($sc
 	
 	$scope.submit = function() {
 		horseEntryService.submit($scope.classes, function(err, result) {
-			console.log(result);
 			$scope.horse_entry_result = result;
 		})
 	}

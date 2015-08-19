@@ -8,7 +8,7 @@ exports.find = function (class_number, callback) {
 	var found = false;
 	
 	classes["data"].forEach(function(item) {
-		if(item["class_number"] === class_number) {
+		if(parseInt(item["class_number"]) === parseInt(class_number)) {
 			found = true;
 			callback(false, item);
 			return;
