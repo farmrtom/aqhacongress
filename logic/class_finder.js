@@ -19,3 +19,18 @@ exports.find = function (class_number, callback) {
 		callback(true);
 };
 
+exports.search = function(search_text, callback) {
+	var results = [];
+	
+	classes["data"].forEach(function(item) {
+		if(item["description"].toUpperCase().indexOf(search_text.toUpperCase()) > -1) {
+			results.push(item);
+		}
+	});
+		
+	if(results.length > 0) {
+		callback(false, results);
+	} else {
+		callback(true);
+	}
+};
